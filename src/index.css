@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --main-bg-color: #e5e3df;
+  --primary-color: #e67f47;
+  --secondary-color: #212121;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--main-bg-color);
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input {
+  font-family: inherit;
+  font-size: 16px;
+  border-radius: 0.3rem;
+  padding: 0.3rem 0.5rem;
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+select {
+  border: none;
+  border-radius: 0.3rem;
+}
+
+option {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 0 0.3rem;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  margin-top: 0.3rem;
+  border-radius: 0.3rem;
+}

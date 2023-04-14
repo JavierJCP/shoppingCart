@@ -1,0 +1,107 @@
+.filters__container {
+  display: flex;
+  gap: 2rem;
+  height: 100%;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  /* clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); */
+  /* height: 0;
+  width: 0;
+  transition: clip-path 0.5s ease; */
+  display: none;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Input Range */
+
+.filter input[type='range'] {
+  /* -webkit-appearance: none; */
+  appearance: none;
+  margin-right: 15px;
+  width: 100px;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  background-image: linear-gradient(white, white);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.filter input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #3a3a3a;
+  cursor: ew-resize;
+  box-shadow: 0 0 2px 0 #555;
+  transition: background 0.3s ease-in-out;
+}
+
+.filter input[type='range']::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+/* select option */
+.select__container {
+  display: flex;
+  position: relative;
+}
+
+.select__box {
+  border: none;
+  outline: none;
+  appearance: none;
+  padding: 0.3rem 0.5rem;
+  color: white;
+  background-color: #212121e9;
+}
+
+.icon__container {
+  width: 20px;
+  /* height: 100%; */
+  padding-left: 3px;
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  background-color: black;
+  border-radius: 0 0.5rem 0.5rem 0;
+  pointer-events: none;
+}
+
+.filters__label {
+  background-color: white;
+  color: #808080;
+  font-family: inherit;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+.filters__label:hover {
+  background-color: #e67f47;
+  color: black;
+}
+
+.filters__check:checked ~ .filters {
+  /* height: 100%;
+  width: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
+  display: flex;
+}

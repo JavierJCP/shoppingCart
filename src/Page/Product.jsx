@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import './Product.css';
 import { AddCart, RemoveCart } from '../components/icons.jsx';
 import { useCart } from '../hooks/useCart';
+import Loader from '../components/Loader';
 
 function Product() {
   const { id } = useParams();
@@ -28,15 +29,15 @@ function Product() {
   return (
     <div>
       <Navbar />
-      <h1 style={{ paddingTop: '8rem', paddingBottom: '2rem' }}>Description</h1>
+
       <div className='product__container'>
         <div className='product__title'>
-          <h4 style={{ padding: '.5rem 0 2rem 0' }}>{product.title}</h4>
           <img src={product.image} alt={product.title} />
         </div>
 
         <div className='product__description'>
           <div>
+            <h4>{product.title}: </h4>
             <p>{product.description}</p>
           </div>
           <div>
@@ -49,6 +50,7 @@ function Product() {
               {isProductInCart ? 'Remove from cart: ' : 'Add To Cart: '}
             </strong>
             <button
+              style={{ margin: '0' }}
               className={isProductInCart ? 'product__remove' : 'product__add'}
               onClick={() =>
                 isProductInCart ? removeFromCart(product) : addToCart(product)
@@ -60,7 +62,7 @@ function Product() {
         </div>
       </div>
 
-      <h1 style={{ padding: '2rem 0' }}>Relative Products</h1>
+      <h3 className='relative__title'>Relative Products</h3>
 
       <div className='similar__container'>
         {similar?.length > 0 ? (
@@ -78,7 +80,7 @@ function Product() {
             ))}
           </ul>
         ) : (
-          <h3>Loading</h3>
+          <Loader />
         )}
       </div>
     </div>

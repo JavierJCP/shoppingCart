@@ -1,10 +1,11 @@
 import Products from '../components/Products';
-import products from '../mocks/products.json';
 import { useFilters } from '../hooks/useFilters';
 import Navbar from '../components/Navbar';
-import './Home.css';
+import { useProducts } from '../hooks/useProducts';
+import Loader from '../components/Loader';
 
 function App() {
+  const { products, loading } = useProducts();
   const { filterProducts } = useFilters();
 
   const filteredProducts = filterProducts(products);
@@ -12,8 +13,7 @@ function App() {
   return (
     <>
       <Navbar />
-
-      <Products products={filteredProducts} />
+      {loading ? <Loader /> : <Products products={filteredProducts} />}
     </>
   );
 }

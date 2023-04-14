@@ -8,10 +8,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  /* clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); */
-  /* height: 0;
-  width: 0;
-  transition: clip-path 0.5s ease; */
   display: none;
 }
 
@@ -100,8 +96,5 @@
 }
 
 .filters__check:checked ~ .filters {
-  /* height: 100%;
-  width: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
   display: flex;
 }

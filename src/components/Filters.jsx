@@ -1,6 +1,5 @@
 import { useId } from 'react';
 import { useFilters } from '../hooks/useFilters';
-import './Filters.css';
 import Arrow from '../assets/arrow.svg';
 import Filter from '../assets/filters.svg';
 
@@ -25,6 +24,7 @@ function Filters() {
           <span>💲{filters.minPrice}</span>
 
           <input
+            className='input'
             type='range'
             id={minPriceId}
             min='0'

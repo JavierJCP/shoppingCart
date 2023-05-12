@@ -2,7 +2,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { useProduct } from '../hooks/useProduct';
 import { useEffect, useState } from 'react';
-import './Product.css';
 import { AddCart, RemoveCart } from '../components/icons.jsx';
 import { useCart } from '../hooks/useCart';
 import Loader from '../components/Loader';
@@ -27,17 +26,18 @@ function Product() {
   }, [product]);
 
   return (
-    <div>
+    <div className='product'>
       <Navbar />
 
       <div className='product__container'>
-        <div className='product__title'>
+        <div className='product__image'>
           <img src={product.image} alt={product.title} />
         </div>
 
         <div className='product__description'>
+          <h2>{product.title}: </h2>
+
           <div>
-            <h4>{product.title}: </h4>
             <p>{product.description}</p>
           </div>
           <div>
@@ -45,18 +45,22 @@ function Product() {
               <strong>Price: 💲</strong> {product.price}
             </p>
           </div>
-          <div className='product__btn'>
-            <strong>
-              {isProductInCart ? 'Remove from cart: ' : 'Add To Cart: '}
-            </strong>
+          <div>
             <button
-              style={{ margin: '0' }}
-              className={isProductInCart ? 'product__remove' : 'product__add'}
+              className={isProductInCart ? 'btn__removeCart' : 'btn__addCart'}
               onClick={() =>
                 isProductInCart ? removeFromCart(product) : addToCart(product)
               }
             >
-              {isProductInCart ? <RemoveCart /> : <AddCart />}
+              {isProductInCart ? (
+                <div className='product_btn'>
+                  <h4>Remove From Cart</h4> <RemoveCart />
+                </div>
+              ) : (
+                <div className='product_btn'>
+                  <h4>Add To Cart </h4> <AddCart />
+                </div>
+              )}
             </button>
           </div>
         </div>
@@ -75,7 +79,10 @@ function Product() {
                   alt={item.title}
                   onClick={() => navigate(`/product/${item.id}`)}
                 />
-                <br />
+
+                <div>
+                  <small>{item.title}</small>
+                </div>
               </li>
             ))}
           </ul>

@@ -1,22 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;900');
 
-:root {
-  --main-bg-color: #e5e3df;
-  --primary-color: #e67f47;
-  --secondary-color: #212121;
-}
+@import 'variables';
+@import '_Navbar.scss';
+@import '_Filters.scss';
+@import '_Products.scss';
+@import '_Product.scss';
+@import '_Cart.scss';
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: $fonts;
 }
 
 html,
 body {
-  background-color: var(--main-bg-color);
+  background-color: $secondary-color;
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
 }
 
 input {
@@ -44,7 +46,13 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 0.3rem 1rem;
+  padding: 0.5rem 1rem;
   margin-top: 0.3rem;
   border-radius: 0.3rem;
+  color: white; 
+  background-color: $primary-color;
+}
+
+.btn__removeCart{
+  background-color: $third-color;
 }

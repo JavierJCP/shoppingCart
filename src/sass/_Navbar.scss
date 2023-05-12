@@ -1,0 +1,103 @@
+.nav {
+  background-color:  $primary-color;
+  height: 80px;
+  color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+
+  .nav__container {
+    display: flex;
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav__logo {
+    font-size: 2rem;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    gap: .5rem;
+  }
+
+  .nav__label {
+    display: none;
+  }
+
+  .nav__menu {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav__item {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+
+  .nav__item:hover {
+    --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .nav__item::after {
+    content: '';
+    /* position: absolute; */
+    display: block;
+    background-color: white;
+    width: 100%;
+    height: 2px;
+    clip-path: var(--clippy);
+    transition: clip-path 0.5s ease;
+  }
+
+  .icon {
+    position: relative;
+  }
+
+  .cart__icon span {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid white;
+    background-color: $third-color;
+    padding: 0 6px;
+    border-radius: 100%;
+  }
+
+  @media (max-width: 700px) {
+    .nav__label {
+      display: block;
+      cursor: pointer;
+    }
+    .nav__menu {
+      background-color: $third-color;
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      clip-path: circle(0 at center);
+      transition: clip-path 0.1s ease-in-out;
+    }
+    .nav__input:checked ~ .nav__menu {
+      clip-path: circle(100% at center);
+    }
+  }
+}
+
+

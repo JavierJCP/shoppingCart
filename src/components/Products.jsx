@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Products.css';
 import { useCart } from '../hooks/useCart';
 import Filters from './Filters';
 import Search from '../assets/search.svg';
@@ -27,7 +26,7 @@ function Products({ products }) {
   };
 
   return (
-    <main>
+    <main className='main'>
       <div className='product__filters'>
         <form className='products__form' onSubmit={handleSubmit}>
           <input
@@ -55,10 +54,17 @@ function Products({ products }) {
               const isProductInCart = checkProductInCart(product);
               return (
                 <li className='product' key={product.id}>
-                  <div onClick={() => navigate(`/product/${product.id}`)}>
-                    <img src={product.image} alt={product.title} />
+                  <div
+                    className='product__items'
+                    onClick={() => navigate(`/product/${product.id}`)}
+                  >
                     <div>
-                      <strong>{product.title}</strong>{' '}
+                      <img src={product.image} alt={product.title} />
+                    </div>
+                    <div>
+                      <h3>{product.title}</h3>
+                    </div>
+                    <div>
                       <span>💲{product.price}</span>
                     </div>
                   </div>
@@ -76,7 +82,15 @@ function Products({ products }) {
                         isProductInCart ? 'btn__removeCart' : 'btn__addCart'
                       }
                     >
-                      {isProductInCart ? <RemoveCart /> : <AddCart />}
+                      {isProductInCart ? (
+                        <div className='Products_btn'>
+                          <h4>Remove From Cart</h4> <RemoveCart />
+                        </div>
+                      ) : (
+                        <div className='Products_btn'>
+                          <h4>Add To Cart </h4> <AddCart />
+                        </div>
+                      )}
                     </button>
                   </div>
                 </li>

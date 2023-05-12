@@ -1,6 +1,5 @@
 import Navbar from '../components/Navbar';
 import { useCart } from '../hooks/useCart';
-import './Cart.css';
 import { ClearCart } from '../components/icons.jsx';
 
 function Cart() {
@@ -23,17 +22,21 @@ function Cart() {
                     <div>
                       <strong>{cart.title}</strong> <br />
                       <small className='quantity'>
-                        Quantity:
-                        <button title='add' onClick={() => addToCart(cart)}>
-                          +
-                        </button>
-                        <span>{cart.quantity}</span>
-                        <button
-                          title='subtract'
-                          onClick={() => subtractFromCart(cart)}
-                        >
-                          -
-                        </button>
+                        <div>
+                          <p>Quantity:</p>
+                        </div>
+                        <div>
+                          <button title='add' onClick={() => addToCart(cart)}>
+                            +
+                          </button>
+                          <span>{cart.quantity}</span>
+                          <button
+                            title='subtract'
+                            onClick={() => subtractFromCart(cart)}
+                          >
+                            -
+                          </button>
+                        </div>
                       </small>
                     </div>
                   </div>
@@ -52,7 +55,7 @@ function Cart() {
               {cart?.map((item) => (
                 <li key={item.id} className='item'>
                   <strong>{item.title}</strong> <br />
-                  <span>SubTotal: 💲{item.price * item.quantity}</span>
+                  <span>SubTotal: 💰 {item.price * item.quantity}</span>
                 </li>
               ))}
             </ul>
@@ -61,16 +64,14 @@ function Cart() {
           <div className='total'>
             <h2>Total: 💲 {total / 100}</h2>
           </div>
-          <h4>
-            Clear Cart:{' '}
-            <button
-              className='cart__clear'
-              onClick={() => clearCart()}
-              title='clear cart'
-            >
-              <ClearCart />
-            </button>
-          </h4>
+
+          <button
+            className='cart__clear'
+            onClick={() => clearCart()}
+            title='clear cart'
+          >
+            Clear Cart: <ClearCart />
+          </button>
         </aside>
       </div>
     </div>
